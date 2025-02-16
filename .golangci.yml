@@ -13,7 +13,7 @@ linters:
     - govet
     - ineffassign
     - staticcheck
-    - unused
+    - gocritic
 
 linters-settings:
   errcheck:
@@ -21,8 +21,7 @@ linters-settings:
   govet:
     enable:
       - shadow
-  staticcheck:
-    checks: ["all"]
+      - unreachable
   unused:
     exported-fields-are-used: true
 
