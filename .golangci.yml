@@ -18,16 +18,13 @@ linters:
 linters-settings:
   errcheck:
     check-type-assertions: true
-  gosimple:
   govet:
     enable:
       - shadow
-  ineffassign:
-    assign: true
   staticcheck:
     checks: ["all"]
   unused:
-    check-exported: true
+    exported-fields-are-used: true
 
 issues:
   exclude-use-default: false
