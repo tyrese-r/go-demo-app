@@ -2,9 +2,8 @@
 run:
   timeout: 5m
   issues-exit-code: 1
-  skip-dirs:
-    - vendor
-    - .git
+  go: '1.23'
+
 
 
 linters:
@@ -20,9 +19,9 @@ linters-settings:
   errcheck:
     check-type-assertions: true
   gosimple:
-    go: 1.18
   govet:
-    check-shadowing: true
+    enable:
+      - shadow
   ineffassign:
     assign: true
   staticcheck:
@@ -34,9 +33,13 @@ issues:
   exclude-use-default: false
   max-issues-per-linter: 50
   max-same-issues: 3
+  exclude-dirs:
+    - vendor
+    - .git
+  uniq-by-line: true
 
 output:
-  format: colored-line-number
+  formats:
+  - format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
-  uniq-by-line: true
