@@ -14,6 +14,7 @@ linters:
     - ineffassign
     - staticcheck
     - gocritic
+    - gosec
 
 linters-settings:
   errcheck:

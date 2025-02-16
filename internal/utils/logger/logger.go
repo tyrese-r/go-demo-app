@@ -13,7 +13,7 @@ var (
 )
 
 func InitLogger(logFilePath string) {
-	logFile, err := os.OpenFile(logFilePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	logFile, err := os.OpenFile(logFilePath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666) // #nosec G302 G304
 
 	if err != nil {
 		log.Fatalf("Failed to open log file: %s", err)
