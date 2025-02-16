@@ -28,3 +28,12 @@ func TestHelloSophie(t *testing.T) {
 		t.Errorf("Expected %q, but got %q", expected, result)
 	}
 }
+
+func TestHelloFred(t *testing.T) {
+	expected := "Hello, Fred!"
+	result := Hello("Fred")
+
+	if result != expected {
+		t.Errorf("Expected %q, but got %q", expected, result)
+	}
+}
