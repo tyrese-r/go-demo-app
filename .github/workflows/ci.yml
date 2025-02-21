@@ -22,7 +22,7 @@ jobs:
         with:
           version: v1.64.5
   test:
-    needs: lint
+    needs: golangci
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
