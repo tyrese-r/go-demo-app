@@ -1,0 +1,9 @@
+.bruno
+.github
+.idea
+.gitignore
+app.log
+
+Dockerfile
+docker-compose.yml
+.env
