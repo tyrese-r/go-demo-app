@@ -12,7 +12,7 @@ type AuthService interface {
 }
 
 type authService struct {
-	//userRepo repositories.UserRepository
+	// userRepo repositories.UserRepository
 }
 
 // NewAuthService creates instance of AuthService
@@ -29,7 +29,7 @@ func (s *authService) Register(username, password string) error {
 	if err != nil {
 		return err
 	}
-	logger.Info.Printf("hash: %s", hash)
+	logger.Info.Printf("u: %s hash: %s", username, hash)
 	// Save user to database
 	return nil
 }
