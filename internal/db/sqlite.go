@@ -30,7 +30,8 @@ func ConnectToDatabase() (*Database, error) {
 	var err error
 
 	once.Do(func() {
-		db, err := gorm.Open(sqlite.Open("app.db"), &gorm.Config{})
+		var db *gorm.DB
+		db, err = gorm.Open(sqlite.Open("app.db"), &gorm.Config{})
 		if err != nil {
 			logger.Error.Fatalf("Failed to open db: %v", err)
 		}

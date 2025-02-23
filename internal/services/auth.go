@@ -2,7 +2,6 @@ package services
 
 import (
 	"errors"
-	"go-demo-app/internal/repositories"
 	"go-demo-app/internal/utils/logger"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -13,7 +12,7 @@ type AuthService interface {
 }
 
 type authService struct {
-	userRepo repositories.UserRepository
+	//userRepo repositories.UserRepository
 }
 
 // NewAuthService creates instance of AuthService
