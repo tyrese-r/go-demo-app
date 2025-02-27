@@ -1,4 +1,4 @@
-name: ci
+name: Build and Deploy
 on:
   push:
     branches:
@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   build:
+    name: Build Docker Image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,6 +55,8 @@ jobs:
           host: ${{ secrets.DEPLOY_SERVER_HOST }}
           username: ${{ secrets.DEPLOY_SERVER_USERNAME }}
           key: ${{ secrets.DEPLOY_SERVER_KEY }}
+          passphrase: ${{ secrets.DEPLOY_SERVER_KEY_PASSPHRASE }}
+          port: ${{ secrets.DEPLOY_SERVER_SSH_PORT }}
           script: |
             # Navigate to app directory
             cd /home/${{ secrets.DEPLOY_SERVER_USERNAME }}/go-demo-app
