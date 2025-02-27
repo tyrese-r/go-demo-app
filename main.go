@@ -1,13 +1,14 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"go-demo-app/internal/db"
 	"go-demo-app/internal/db/schema"
 	"go-demo-app/internal/handlers"
 	"go-demo-app/internal/services"
 	"go-demo-app/internal/utils/logger"
 	"go-demo-app/internal/utils/secrets"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -29,6 +30,7 @@ func main() {
 	authService := services.NewAuthService()
 	authHandler := handlers.NewAuthHandler(authService)
 	userHandler := handlers.NewUserHandler()
+	statsHandler := handlers.NewStatsHandler()
 
 	api := router.Group("/api")
 	{
@@ -37,9 +39,11 @@ func main() {
 
 		api.GET("/users/:username", userHandler.GetUserHandler)
 		api.POST("/users", userHandler.CreateUserHandler)
+
+		api.GET("/stats", statsHandler.GetStats)
 	}
 
-	logger.Info.Println("Hello world!")
+	logger.Info.Printf("Running in %s", secrets.GetFromEnv("ENVIRONMENT", "null"))
 
 	err = router.Run(":8080")
 	if err != nil {
