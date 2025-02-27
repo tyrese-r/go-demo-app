@@ -1,4 +1,4 @@
-name: ci
+name: Lint and Test
 on:
   pull_request:
     branches:
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   golangci:
-    name: lint
+    name: Lint Code
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +21,7 @@ jobs:
         with:
           version: v1.64.5
   test:
+    name: Run Tests
     needs: golangci
     runs-on: ubuntu-latest
     steps:
