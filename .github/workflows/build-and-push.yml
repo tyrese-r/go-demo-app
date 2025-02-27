@@ -73,11 +73,11 @@ jobs:
             docker pull ${{ vars.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:latest
 
             # Stop and start the containers
-            docker-compose down
-            docker-compose up -d
+            docker compose down
+            docker compose up -d
 
             # Verify deployment
             docker ps
 
             # Show logs to verify startup
-            docker-compose logs --tail=20 app
+            docker compose logs --tail=20 app
