@@ -8,10 +8,6 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - ./app.db:/app/app.db:delegated
+      - ./app.db:/app/app.db
       - ./logs:/app/logs
-    deploy:
-      resources:
-        limits:
-          memory: 400M
     # App version is handled through the Dockerfile build args
