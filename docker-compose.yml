@@ -7,7 +7,4 @@ services:
     restart: always
     ports:
       - '8080:8080'
-    volumes:
-      - ./app.db:/app/app.db
-      - ./logs:/app/logs
     # App version is handled through the Dockerfile build args
